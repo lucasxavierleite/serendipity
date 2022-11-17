@@ -1,0 +1,118 @@
+{
+    "bar_id": "bar-1",
+    "ipc": true,
+    "layer": "top",
+    "position": "bottom",
+    "width": 1880,
+    "margin": "-20, 0, 10, 0",
+    "modules-left": ["idle_inhibitor", "disk", "disk#2", "cpu", "memory", "temperature"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["custom/lockbar", "sway/language", "backlight", "pulseaudio", "custom/wallpaper", "custom/github", "tray", "custom/power"],
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "disk": {
+        "format": " {path} {}%",
+        "path": "/",
+        "on-click": "xdg-open /"
+    },
+    "disk#2": {
+        "format": " ~ {}%",
+        "path": "/home/lucas",
+        "on-click": "xdg-open /home/lucas"
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "thermal-zone": 7,
+        "interval": 10,
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": " "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null",
+        "on-click": "playerctl --player spotify play-pause",
+        "on-click-right": "swaymsg [title='^Spotify$'] focus",
+        "on-scroll-up": "playerctl --player spotify next",
+        "on-scroll-down": "playerctl --player spotify previous"
+    },
+    "custom/lockbar": {
+        "interval": "once",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/scripts/mode.sh bar-0",
+        "on-click": "swaymsg bar bar-0 mode toggle; swaymsg bar bar-0 hidden_state hide"
+    },
+    "sway/language": {
+        "format": "  {}",
+        "tooltip-format": "{long}",
+        "on-click": "exec swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "hyprland/language": {
+        "format": "  {}",
+        "tooltip-format": "{long}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""],
+        "on-scroll-up": "exec light -A 10",
+        "on-scroll-down": "exec light -U 10"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%   {format_source}",
+        "format-bluetooth": "{icon}   {volume}%   {format_source}",
+        "format-bluetooth-muted": " {icon}    {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": "  {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": [" ", " ", " "],
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/wallpaper": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "set_wallpaper.sh"
+    },
+    "custom/github": {
+        //"format": "  {}",
+        "format": "  {}",
+        "tooltip": false,
+        "return-type": "json",
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/scripts/github.sh",
+        "on-click": "xdg-open https://github.com/notifications"
+    },
+    "custom/weather": {
+        "exec": "curl 'br.wttr.in/Sao_Carlos?format=1'"
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 10
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/scripts/power_menu.sh"
+    }
+}

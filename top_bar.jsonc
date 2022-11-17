@@ -1,0 +1,48 @@
+{
+    "bar_id": "bar-0",
+    //"ipc": true,
+    "layer": "top",
+    "width": 1880,
+    "margin": "10, 0, -20, 0",
+    "modules-left": ["sway/workspaces", "sway/mode", "wlr/workspaces", "hyprland/window"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["clock",  "custom/bluetooth", "network", "battery"],
+    "sway/workspaces": {
+        "all-outputs": true
+    },
+    "sway/window": {
+        "max-length": 80
+    },
+    "hyprland/window": {
+        "max-length": 80
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%a · %Y.%m.%d · %H:%M:%S}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/bluetooth": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "blueman-manager"
+    },
+    "network": {
+        "format-wifi": "",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+        "format-linked": " {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    }
+}
