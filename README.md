@@ -2,7 +2,7 @@
 
 ![](demo.gif)
 
-### An adaptable bar that looks nice on every setting
+### An adaptable bar that looks nice in every setting
 
 ![](top_bar.gif)
 
