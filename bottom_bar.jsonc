@@ -1,9 +1,10 @@
 {
-    "bar_id": "bar-1",
+    "id": "bar-1",
     "ipc": true,
     "layer": "top",
     "position": "bottom",
     "width": 1880,
+    "spacing": "100",
     "margin": "-20, 0, 10, 0",
     "modules-left": ["idle_inhibitor", "disk", "disk#2", "cpu", "memory", "temperature"],
     "modules-center": ["custom/media"],
@@ -56,8 +57,8 @@
     "custom/lockbar": {
         "interval": "once",
         "return-type": "json",
-        "exec": "$HOME/.config/waybar/scripts/mode.sh bar-0",
-        "on-click": "swaymsg bar bar-0 mode toggle; swaymsg bar bar-0 hidden_state hide"
+        "exec": "$HOME/.config/waybar/scripts/mode.sh bar-1",
+        "on-click": "swaymsg bar bar-1 mode toggle; swaymsg bar bar-1 hidden_state hide"
     },
     "sway/language": {
         "format": "  {}",
@@ -92,12 +93,12 @@
     "custom/wallpaper": {
         "format": "",
         "tooltip": false,
-        "on-click": "set_wallpaper.sh"
+        "on-click": "set_wallpaper.sh --wal"
     },
     "custom/github": {
         //"format": "  {}",
         "format": "  {}",
-        "tooltip": false,
+        //"tooltip": false,
         "return-type": "json",
         "interval": 60,
         "exec": "$HOME/.config/waybar/scripts/github.sh",

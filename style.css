@@ -1,8 +1,9 @@
 @import "/home/lucas/.cache/wal/colors-waybar.css";
 
 /*@define-color foreground #;*/
-/*@define-color background #*/
+/*@define-color background #;*/
 /*@define-color color1 #;*/
+/*@define-color color2 #;*/
 /*@define-color color3 #;*/
 /*@define-color color4 #;*/
 
@@ -16,7 +17,7 @@ window#waybar {
     background-color: alpha(@background, 0.5);
     color: @foreground;
     transition-property: opacity, background-color;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     border-radius: 10px 10px 0 0;
     font-size: 12pt;
 }
@@ -65,12 +66,14 @@ window#waybar.empty {
 }
 
 #workspaces button {
-    margin: 10px 2px;
+    margin: 6px 2px;
     padding: 0;
     min-width: 28px;
     min-height: 28px;
-    background-color: @foreground;
-    color: @background;
+    /*background-color: @foreground;*/
+    /*color: @background;*/
+    background-color: alpha(@color2, 0.5);
+    color: alpha(@foreground, 0.5);
     border: 1px solid @color3;
     border-radius: 14px;
     font-weight: bold;
@@ -95,23 +98,9 @@ window#waybar.empty {
 }
 
 #mode {
-    margin: 5px;
+    margin: 6px;
     color: @color4;
     font-weight: bold;
-}
-
-#mode,
-#clock,
-#custom-media,
-#backlight,
-#pulseaudio {
-    padding: 0 8px;
-}
-
-#battery,
-#custom-bluetooth,
-#network {
-    padding: 0 6px;
 }
 
 #clock {
@@ -125,14 +114,11 @@ window#waybar.empty {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        color: @color1;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: @foreground;
-    color: @background;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -144,7 +130,6 @@ window#waybar.empty {
     /*background-color: #000000;*/
 /*}*/
 
-
 #custom-media.custom-spotify {
     color: #66cc99;
 }
@@ -153,6 +138,7 @@ window#waybar.empty {
     color: #ffa000;
 }
 
+#workspaces,
 #clock,
 #battery,
 #custom-bluetooth,
@@ -174,6 +160,7 @@ window#waybar.empty {
 #tray,
 #custom-power {
     color: @foreground;
+    margin: 4px 8px;
 }
 
 button:hover {

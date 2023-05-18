@@ -1,6 +1,7 @@
 {
-    "bar_id": "bar-0",
-    //"ipc": true,
+    "id": "bar-0",
+    "ipc": false,
+    "position": "top",
     "layer": "top",
     "width": 1880,
     "margin": "10, 0, -20, 0",
@@ -32,7 +33,7 @@
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
-        "on-click": "nm-connection-editor"
+        "on-click": "nm-applet"
     },
     "battery": {
         "states": {

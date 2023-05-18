@@ -1,0 +1,10 @@
+[
+    {
+        "include": ["$HOME/.config/waybar/serendipity/top_bar.jsonc"]
+    },
+    {
+        "include": ["$HOME/.config/waybar/serendipity/bottom_bar.jsonc"]
+    }
+]
+
+// vim: ft=jsonc
